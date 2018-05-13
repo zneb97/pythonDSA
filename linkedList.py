@@ -32,6 +32,7 @@ class linkedList():
 		"""
 		newNode = Node()
 		newNode.key = value
+
 		if i == 0:
 			return self.__addFirst(newNode)
 		elif i == -1:
@@ -121,13 +122,13 @@ class linkedList():
 			raise ValueError("List already empty")
 
 		if i == 0:
-			return self.removeFirst()
+			return self.__removeFirst()
 		elif i == -1:
-			return self.removeLast()
+			return self.__removeLast()
 		else:
-			return self.removeIndex(i) 
+			return self.__removeIndex(i) 
 
-	def removeLast(self):
+	def __removeLast(self):
 		"""
 		Removes the node at the end of the list
 
@@ -146,7 +147,7 @@ class linkedList():
 		return temp.key
 
 
-	def removeFirst(self):
+	def __removeFirst(self):
 		"""
 		Removes the node at the start of the list
 
@@ -164,7 +165,7 @@ class linkedList():
 		self.size -= 1
 		return temp.key
 
-	def removeIndex(self, i):
+	def __removeIndex(self, i):
 		"""
 		Removes the node at a specific of the list
 
@@ -222,7 +223,7 @@ class linkedList():
 		return -1
 		
 
-	def printList(self):
+	def toString(self):
 		if self.size == 0:
 			return
 
@@ -230,12 +231,4 @@ class linkedList():
 		for i in range(self.size):
 			print(current.key)
 			current = current.next
-
-
-if __name__ == "__main__":
-	test = linkedList()
-	test.add(0)
-	test.add(99)
-	test.add(2)
-	print(test.contains("hi"))
 
